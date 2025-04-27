@@ -1,0 +1,38 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ShaderCanvas from "../../components/react/ShaderCanvas"
+import { shaderMap } from "../../components/shader-strings/shader-map.js"
+import { Code } from 'astro:components';
+
+
+export function getStaticPaths() {
+  return [
+    { params: { name: "String Theory" }},
+    { params: {name: "Chroma" }},
+    { params: {name: "Learn" }},
+    { params: {name: "SDFS" }},
+    { params: {name: "Shade" }},
+    { params: {name: "Tangerine" }}
+  ];
+}
+// export const  prerender = false;
+
+const { name } = Astro.params;
+
+let source = shaderMap.get(name);
+if (source == undefined) {
+    source = ""
+}
+---
+
+<Layout>
+    <p class="border border-b-0 px-4 text-sm sm:hidden">NOTE: This page is not fully optimized for the mobile viewing experience</p>
+    <h1 class="text-3xl border p-4">{name}</h1>
+    <div class="border border-t-0 p-2">
+        <ShaderCanvas shaderName={name} client:load />
+    </div>
+    <h3 class="border border-t-0 text-2xl p-2 text-right">Source</h3>
+    <div class="border border-t-0 p-4">
+        <Code code={source} lang="wgsl" theme="vitesse-black"/>
+    </div>
+</Layout>

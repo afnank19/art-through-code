@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+
+body {
+    background-color: black;
+    color: white;
+    font-family: "JetBrains Mono", monospace;
+    font-optical-sizing: auto;
+}
+
+font-jbmono {
+    font-family: "JetBrains Mono", monospace;
+    font-optical-sizing: auto;
+}
+
+code {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 14px;
+}
+
+.scale-down {
+    scale: 1.05;
+    transition: all 0.6s cubic-bezier(0,.78,.4,1.01);
+}
+.scale-down:hover {
+    scale: 1;
+}
+
+.scale-anim {
+    filter: grayscale(25%);
+    transition: all 0.6s cubic-bezier(0,.78,.4,1.01);
+}
+.scale-anim:hover {
+   scale: 1.025;
+   filter: grayscale(0%);
+}
+
+@keyframes scale {
+    0% {
+        scale: 1;
+    }
+    100% {
+        scale: 1.1;
+    }
+}

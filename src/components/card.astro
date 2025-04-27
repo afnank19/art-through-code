@@ -1,0 +1,12 @@
+---
+const { title, src } = Astro.props;
+---
+
+<div class="md:w-1/3 sm:w-1/2 w-full p-2 flex flex-col gap-2">
+    <a  href={`/shader/${title}`} class="overflow-hidden scale-anim">
+        <img src={src} class="scale-down object-cover" alt={title} loading="lazy">
+    </a>
+    <div>
+        <a class="text-lg hover:underline" href={`/shader/${title}`}>{title}<a>
+    </div>
+</div>
